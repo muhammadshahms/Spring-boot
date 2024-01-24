@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"
+      layout:lang="en">
+
+<!-- Page Content-->
+<section class="py-5" layout:fragment="content">
+    <div class="container border rounded p-5 my-5 bg-light text-center text-lg-start w-50 mx-auto mt-5">
+    <h1 class="text-center mb-5">Create Club</h1>
+    <div class="alert alert-danger" role="alert" th:if="${error}">
+        <p th:text="${error}"></p>
+    </div>
+
+    <form th:action="@{/club-create}" method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" aria-describedby="tilteHelp">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <input type="text" class="form-control" id="content" aria-describedby="contentHelp">
+        </div>
+        <div class="mb-3">
+            <label for="photoURL" class="form-label">PhotoURL</label>
+            <input type="text" class="form-control" id="photoURL" aria-describedby="photoUrlHelp">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</section>
+</html>
