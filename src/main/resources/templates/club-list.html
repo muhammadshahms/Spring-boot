@@ -11,8 +11,8 @@
                 <h2 class="fw-bolder mb-4" th:text="${clubs.title}"></h2>
                 <p th:text="${clubs.content}"></p>
                 <div class="d-flex justify-content-between align-items-center">
-                    <a class="btn btn-primary btn-lg" th:href="@{/club/{id}(id=${clubs.id})}">Read more</a>
-                    <a class="btn btn-warning btn-lg" th:href="@{/club/{cloubId}/edit/id(id=${clubs.id})}">Edit</a></a>
+<!--                    <a class="btn btn-primary btn-lg" th:href="@{/club/{id}(id=${clubs.id})}">Read more</a>-->
+                    <a class="btn btn-warning btn-lg" th:href="@{/club/{clubId}/edit(clubId=${clubs.id})}">Edit</a>
                 </div>
             </div>
         </div>

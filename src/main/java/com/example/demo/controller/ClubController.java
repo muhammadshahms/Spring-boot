@@ -41,7 +41,7 @@ public class ClubController {
     }
 
 
-    @GetMapping("/club/{cloudId}/edit")
+    @GetMapping("/club/{clubId}/edit")
     public String editClubForm(@PathVariable("clubId") Long clubId, Model model) {
         ClubDto club = clubService.findClubById(clubId);
         model.addAttribute("club", club);
@@ -49,9 +49,9 @@ public class ClubController {
     }
 
     @PostMapping("/club/{clubId}/edit")
-    public String updateClub(@PathVariable("clubId") Long clubId, @ModelAttribute("club") Club club) {
+    public String updateClub(@PathVariable("clubId") Long clubId, @ModelAttribute("club") ClubDto club) {
         club.setId(clubId);
-        clubService.updateClub(ClubDto.builder().build());
+        clubService.updateClub(club);
         return "redirect:/club";
     }
 }

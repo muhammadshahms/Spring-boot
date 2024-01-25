@@ -11,7 +11,7 @@
         <!--            <p th:text="${error}"></p>-->
         <!--        </div>-->
 
-        <form role="form" th:action="@{/club/edit/{id}(id=${club.id})}" method="post" th:object="${club}">
+        <form role="form" th:action="@{/club/{clubId}/edit(clubId=${club.id})}" method="post" th:object="${club}">
             <input type="hidden" th:field="*{id}">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
