@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 public class ClubDto {
-
     private Long id;
     private String title;
     private String photoUrl;
