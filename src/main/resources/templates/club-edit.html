@@ -15,17 +15,27 @@
             <input type="hidden" th:field="*{id}">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" th:field="*{title}" name="title" class="form-control" id="title" aria-describedby="titleHelp">
+                <input type="text" th:field="*{title}" name="title" class="form-control" id="title"
+                       aria-describedby="titleHelp">
+                <span class="text-danger" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
             </div>
             <div class="mb-3">
                 <label for="content" class="form-label">Content</label>
-                <input type="text" th:field="*{content}" name="content" class="form-control" id="content" aria-describedby="contentHelp">
+                <input type="text" th:field="*{content}" name="content" class="form-control" id="content"
+                       aria-describedby="contentHelp">
+                <span class="text-danger" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span>
+
             </div>
             <div class="mb-3">
                 <label for="photoUrl" class="form-label">PhotoURL</label>
-                <input type="text" th:field="*{photoUrl}" name="photoUrl" class="form-control" id="photoUrl" aria-describedby="photoUrlHelp">
+                <input type="text" th:field="*{photoUrl}" name="photoUrl" class="form-control" id="photoUrl"
+                       aria-describedby="photoUrlHelp">
+                <span class="text-danger" th:if="${#fields.hasErrors('photoUrl')}" th:errors="*{photoUrl}"></span>
+                <img th:src="${club.photoUrl}" alt="..."
+                     class="img-thumbnail rounded w-25 h-25 d-block overflow-auto my-4">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+
+            <button type="submit" class="btn btn-primary ">Submit</button>
         </form>
     </div>
 </section>
