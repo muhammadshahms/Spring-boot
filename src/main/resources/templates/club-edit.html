@@ -34,9 +34,17 @@
                 <img th:src="${club.photoUrl}" alt="..."
                      class="img-thumbnail rounded w-25 h-25 d-block overflow-auto my-4">
             </div>
+            <a class="btn btn-danger" th:href="@{/club/{clubId}/delete(clubId=${club.id})}" th:onclick="return confirm('Are you sure?')">Delete</a>
+             <button type="reset" class="btn btn-warning">Reset</button>
+            <button type="submit" class="btn btn-primary ">Save</button>
 
-            <button type="submit" class="btn btn-primary ">Submit</button>
         </form>
+<!--        <form th:action="@{/club/{clubId}/delete(clubId=${club.id})}" th:object="${club}" method="post">-->
+<!--            <input type="hidden" th:field="*{id}">-->
+<!--            <button type="submit" class="btn btn-danger" th:onclick="return confirm('Are you sure?')">Delete-->
+<!--            </button>-->
+<!--        </form>-->
+
     </div>
 </section>
 </html>
