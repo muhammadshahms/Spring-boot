@@ -75,6 +75,19 @@ public class ClubController {
         clubService.deleteClub(clubId);
         return "redirect:/club";
     }
+
+    @GetMapping("/club/search")
+    public String searchClubs(@RequestParam("query") String query, Model model) {
+        List<ClubDto> clubs = clubService.findByQuery(query);
+
+        if (clubs.isEmpty()) {
+            model.addAttribute("message", "No clubs found for the given query.");
+        } else {
+            model.addAttribute("clubs", clubs);
+        }
+
+        return "club-list";
+    }
 }
 
 
