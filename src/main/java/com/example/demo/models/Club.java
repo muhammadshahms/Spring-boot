@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
@@ -31,6 +32,6 @@ public class Club {
     @UpdateTimestamp
     private LocalDateTime updateOn;
 
-    @OneToMany(mappedBy = "club" , cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "club", cascade = CascadeType.REMOVE)
     private Set<Event> events = new HashSet<>();
 }

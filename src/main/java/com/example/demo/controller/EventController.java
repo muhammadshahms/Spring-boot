@@ -18,7 +18,7 @@ public class EventController {
     public String createEventForm(@PathVariable Long clubId, Model model) {
         Event event = new Event();
         model.addAttribute("clubId", clubId);
-        model.addAttribute("event", event);
+        model.addAttribute("events", event);
         return "event-create";
     }
 }
