@@ -21,6 +21,7 @@ public class Event {
     public Long id;
     public String name;
     private String location;
+    private String photoUrl;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private String type;

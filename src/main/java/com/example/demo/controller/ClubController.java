@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.naming.Binding;
 import java.util.List;
 
 @Controller
@@ -32,14 +31,14 @@ public class ClubController {
         List<ClubDto> clubs = clubService.findAllClubs();
 
         model.addAttribute("clubs", clubs);
-        return "club-list";
+        return "club/club-list";
     }
 
     @GetMapping("/club/new")
     public String newClub(Model model) {
         Club club = new Club();
         model.addAttribute("club", club);
-        return "club-create";
+        return "club/club-create";
     }
 
     @PostMapping("/club/new")
@@ -53,7 +52,7 @@ public class ClubController {
     public String editClubForm(@PathVariable("clubId") Long clubId, Model model) {
         ClubDto club = clubService.findClubById(clubId);
         model.addAttribute("club", club);
-        return "club-edit";
+        return "club/club-edit";
     }
 
     @PostMapping("/club/{clubId}/edit")
@@ -62,7 +61,7 @@ public class ClubController {
                              BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "club-edit";
+            return "club/club-edit";
         }
 
         club.setId(clubId);
@@ -81,12 +80,19 @@ public class ClubController {
         List<ClubDto> clubs = clubService.findByQuery(query);
 
         if (clubs.isEmpty()) {
-            model.addAttribute("message", "No clubs found for the given query.");
+            model.addAttribute("message", "No clubs found.");
         } else {
             model.addAttribute("clubs", clubs);
         }
 
-        return "club-list";
+        return "club/club-list";
+    }
+
+    @GetMapping("/club/{clubId}/view")
+    public String viewClub(@PathVariable("clubId") Long clubId, Model model) {
+        ClubDto club = clubService.findClubById(clubId);
+        model.addAttribute("club", club);
+        return "club/club-view";
     }
 }
 

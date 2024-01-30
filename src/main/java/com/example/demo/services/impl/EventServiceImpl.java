@@ -31,7 +31,7 @@ public class EventServiceImpl implements EventService {
         return Event.builder()
                 .name(eventDto.getName())
                 .location(eventDto.getLocation())
-//                .photoUrl(eventDto.getPhotoUrl())
+                .photoUrl(eventDto.getPhotoUrl())
                 .type(eventDto.getType())
                 .startTime(eventDto.getStartTime())
                 .endTime(eventDto.getEndTime())
