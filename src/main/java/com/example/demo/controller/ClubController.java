@@ -22,14 +22,15 @@ public class ClubController {
     }
 
     @GetMapping("/")
-    public String index() {
+    public String index(Model model) {
+        List<ClubDto> clubs = clubService.findAllClubs();
+        model.addAttribute("clubs", clubs);
         return "index";
     }
 
     @GetMapping("/club")
     public String listClubs(Model model) {
         List<ClubDto> clubs = clubService.findAllClubs();
-
         model.addAttribute("clubs", clubs);
         return "club/club-list";
     }
