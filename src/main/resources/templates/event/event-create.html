@@ -13,26 +13,26 @@
         <!--            <p th:text="${error}"></p>-->
         <!--        </div>-->
 
-        <form role="form" th:action="@{/event/{clubId}/new/(clubId=${clubId})}" method="post" th:object="${event}">
+        <form role="form" th:action="@{/event/{clubId}(clubId=${clubId})}" method="post" th:object="${event}">
             <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" th:field="*{name}" name="title" class="form-control" id="title"
-                       aria-describedby="titleHelp">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" th:field="*{name}" name="name" class="form-control" id="name"
+                       aria-describedby="nameHelp">
             </div>
             <div class="mb-3">
-                <label for="content" class="form-label">Content</label>
-                <input type="text" th:field="*{location}" name="content" class="form-control" id="content"
-                       aria-describedby="contentHelp">
+                <label for="location_" class="form-label">Location</label>
+                <input type="text" th:field="*{location}" name="location" class="form-control" id="location_"
+                       aria-describedby="locationHelp">
+            </div>
+            <div class="mb-3">
+                <label for="type" class="form-label">Type</label>
+                <input type="text" th:field="*{type}" name="type" class="form-control" id="type"
+                       aria-describedby="typeHelp">
             </div>
             <div class="mb-3">
                 <label for="photoUrl" class="form-label">PhotoURL</label>
                 <input type="text" th:field="*{photoUrl}" name="photoUrl" class="form-control" id="photoUrl"
                        aria-describedby="photoUrlHelp">
-            </div>
-            <div class="mb-3">
-                <label for="location" class="form-label">Location</label>
-                <input type="text" th:field="*{location}" name="location" class="form-control" id="location"
-                       aria-describedby="locationHelp">
             </div>
             <div class="mb-3">
                 <label for="startTime" class="form-label">Start Time</label>

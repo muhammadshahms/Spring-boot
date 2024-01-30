@@ -10,136 +10,135 @@
 </head>
 
 <body>
-<div layout:fragment="content">
-    <section class="py-5">
-        <div class="container px-5 my-5">
-            <div class="row gx-5">
-                <div class="col-lg-3">
-                    <div class="d-flex align-items-center mt-lg-5 mb-4">
-                        <img class="img-fluid rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
-                             alt="..."/>
-                        <div class="ms-3">
-                            <div class="fw-bold">Valerie Luna</div>
-                            <div class="text-muted">News, Business</div>
-                        </div>
+<section class="py-5" layout:fragment="content">
+
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-3">
+                <div class="d-flex align-items-center mt-lg-5 mb-4">
+                    <img class="img-fluid rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
+                         alt="..."/>
+                    <div class="ms-3">
+                        <div class="fw-bold">Valerie Luna</div>
+                        <div class="text-muted">News, Business</div>
                     </div>
                 </div>
-                <div class="col-lg-9">
-                    <!-- Post content-->
-                    <article>
-                        <!-- Post header-->
-                        <header class="mb-4">
-                            <!-- Post title-->
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h1 class="fw-bolder mb-1" th:text="${club.title}"></h1>
-                                <div class="btn-group">
-                                    <a type="button" class="text-secondary" data-bs-toggle="dropdown">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                             fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
-                                        </svg>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-lg-end">
-                                        <li>
-                                            <a class="dropdown-item"
-                                               th:href="@{/club/{clubId}/edit(clubId=${club.id})}"> Edit </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item"
-                                               th:href="@{/club/{clubId}/delete(clubId=${club.id})}"
-                                               th:onclick="return confirm('Are you sure?')"> Delete </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Post meta content-->
-                            <p class=" text-muted fst-italic mb-2" th:text="${club.createdOn}"></p>
-                            <!-- Post categories-->
-                            <div class="d-flex justify-content-start gap-2">
-                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                                <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
-                                <a class="d-flex align-items-start gap-1 text-decoration-none badge bg-secondary text-decoration-none link-light"
-                                   th:href=" @{/event/{clubId}/new(clubId=${club.id})}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-                                         class="bi bi-calendar-plus" viewBox="0 0 16 16">
-                                        <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7"/>
-                                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+            </div>
+            <div class="col-lg-9">
+                <!-- Post content-->
+                <article>
+                    <!-- Post header-->
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h1 class="fw-bolder mb-1" th:text="${club.title}"></h1>
+                            <div class="btn-group">
+                                <a type="button" class="text-secondary" data-bs-toggle="dropdown">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                         fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
                                     </svg>
-                                    create event
                                 </a>
+                                <ul class="dropdown-menu dropdown-menu-lg-end">
+                                    <li>
+                                        <a class="dropdown-item"
+                                           th:href="@{/club/{clubId}/edit(clubId=${club.id})}"> Edit </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item"
+                                           th:href="@{/club/{clubId}/delete(clubId=${club.id})}"
+                                           th:onclick="return confirm('Are you sure?')"> Delete </a>
+                                    </li>
+                                </ul>
                             </div>
-                        </header>
+                        </div>
+                        <!-- Post meta content-->
+                        <p class=" text-muted fst-italic mb-2" th:text="${club.createdOn}"></p>
+                        <!-- Post categories-->
+                        <div class="d-flex justify-content-start gap-2">
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                            <a class="d-flex align-items-start gap-1 text-decoration-none badge bg-secondary text-decoration-none link-light"
+                               th:href=" @{/event/{clubId}/new(clubId=${club.id})}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
+                                     class="bi bi-calendar-plus" viewBox="0 0 16 16">
+                                    <path d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7"/>
+                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                                </svg>
+                                create event
+                            </a>
+                        </div>
+                    </header>
 
-                        <!-- Preview image figure-->
-                        <figure class="mb-4">
-                            <img class="img-fluid rounded" style="width: 900px; height: 400px;"
-                                 th:src="${club.photoUrl}" alt="..."/>
-                        </figure>
-                        <!-- Post content-->
-                        <section class="mb-5">
-                            <p class="fs-5 mb-4" th:text="${club.content}"></p>
-                        </section>
-                    </article>
-                    <!-- Comments section-->
-                    <section>
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <!-- Comment form-->
-                                <form class="mb-4"><textarea class="form-control" rows="3"
-                                                             placeholder="Join the discussion and leave a comment!"></textarea>
-                                </form>
-                                <!-- Comment with nested comments-->
-                                <div class="d-flex mb-4">
-                                    <!-- Parent comment-->
-                                    <div class="flex-shrink-0"><img class="rounded-circle"
-                                                                    src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
-                                                                    alt="..."/></div>
-                                    <div class="ms-3">
-                                        <div class="fw-bold">Commenter Name</div>
-                                        If you're going to lead a space frontier, it has to be government; it'll never
-                                        be private enterprise. Because the space frontier is dangerous, and it's
-                                        expensive, and it has unquantified risks.
-                                        <!-- Child comment 1-->
-                                        <div class="d-flex mt-4">
-                                            <div class="flex-shrink-0"><img class="rounded-circle"
-                                                                            src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
-                                                                            alt="..."/></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                And under those conditions, you cannot establish a capital-market
-                                                evaluation of that enterprise. You can't get investors.
-                                            </div>
+                    <!-- Preview image figure-->
+                    <figure class="mb-4">
+                        <img class="img-fluid rounded" style="width: 900px; height: 400px;"
+                             th:src="${club.photoUrl}" alt="..."/>
+                    </figure>
+                    <!-- Post content-->
+                    <section class="mb-5">
+                        <p class="fs-5 mb-4" th:text="${club.content}"></p>
+                    </section>
+                </article>
+                <!-- Comments section-->
+                <section>
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <!-- Comment form-->
+                            <form class="mb-4"><textarea class="form-control" rows="3"
+                                                         placeholder="Join the discussion and leave a comment!"></textarea>
+                            </form>
+                            <!-- Comment with nested comments-->
+                            <div class="d-flex mb-4">
+                                <!-- Parent comment-->
+                                <div class="flex-shrink-0"><img class="rounded-circle"
+                                                                src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
+                                                                alt="..."/></div>
+                                <div class="ms-3">
+                                    <div class="fw-bold">Commenter Name</div>
+                                    If you're going to lead a space frontier, it has to be government; it'll never
+                                    be private enterprise. Because the space frontier is dangerous, and it's
+                                    expensive, and it has unquantified risks.
+                                    <!-- Child comment 1-->
+                                    <div class="d-flex mt-4">
+                                        <div class="flex-shrink-0"><img class="rounded-circle"
+                                                                        src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
+                                                                        alt="..."/></div>
+                                        <div class="ms-3">
+                                            <div class="fw-bold">Commenter Name</div>
+                                            And under those conditions, you cannot establish a capital-market
+                                            evaluation of that enterprise. You can't get investors.
                                         </div>
-                                        <!-- Child comment 2-->
-                                        <div class="d-flex mt-4">
-                                            <div class="flex-shrink-0"><img class="rounded-circle"
-                                                                            src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
-                                                                            alt="..."/></div>
-                                            <div class="ms-3">
-                                                <div class="fw-bold">Commenter Name</div>
-                                                When you put money directly to a problem, it makes a good headline.
-                                            </div>
+                                    </div>
+                                    <!-- Child comment 2-->
+                                    <div class="d-flex mt-4">
+                                        <div class="flex-shrink-0"><img class="rounded-circle"
+                                                                        src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
+                                                                        alt="..."/></div>
+                                        <div class="ms-3">
+                                            <div class="fw-bold">Commenter Name</div>
+                                            When you put money directly to a problem, it makes a good headline.
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Single comment-->
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0"><img class="rounded-circle"
-                                                                    src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
-                                                                    alt="..."/></div>
-                                    <div class="ms-3">
-                                        <div class="fw-bold">Commenter Name</div>
-                                        When I look at the universe and all the ways the universe wants to kill us, I
-                                        find it hard to reconcile that with statements of beneficence.
-                                    </div>
+                            </div>
+                            <!-- Single comment-->
+                            <div class="d-flex">
+                                <div class="flex-shrink-0"><img class="rounded-circle"
+                                                                src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
+                                                                alt="..."/></div>
+                                <div class="ms-3">
+                                    <div class="fw-bold">Commenter Name</div>
+                                    When I look at the universe and all the ways the universe wants to kill us, I
+                                    find it hard to reconcile that with statements of beneficence.
                                 </div>
                             </div>
                         </div>
-                    </section>
-                </div>
+                    </div>
+                </section>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 </body>
 </html>
