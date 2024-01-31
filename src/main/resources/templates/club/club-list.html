@@ -33,7 +33,7 @@
             <!--        </div>-->
 
             <div th:if="${clubs}" class="row gx-5">
-                <div th:each="clubs:${clubs}" class="col-lg-4 mb-5">
+                <div th:each="clubs:${clubs}" class="col-lg-4 mb-3 mb-5">
                     <div class="d-flex justify-content-end align-items-center mb-2 gap-2">
                         <a th:href="@{/club/{clubId}(clubId=${clubs.id})}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -53,12 +53,14 @@
                     </div>
 
                     <div class="card h-100 shadow border-0">
-                        <img class="card-img-top" th:src="${clubs.photoUrl}" alt="..."/>
+                        <img class="card-img-top img-fluid" style="height: 400px; object-fit: cover;"
+                             th:src="${clubs.photoUrl}" alt="..."/>
                         <div class="card-body p-4">
-                            <div class="badge bg-primary bg-gradient rounded-pill mb-2 "></div>
+                            <div class="badge bg-primary bg-gradient rounded-pill mb-2"></div>
                             <a class="text-decoration-none link-dark stretched-link"
                                th:href="@{/club/{clubId}(clubId=${clubs.id})}">
-                                <h5 class="card-title mb-3" th:text="${clubs.title}"></h5></a>
+                                <h5 class="card-title mb-3" th:text="${clubs.title}"></h5>
+                            </a>
                             <p class="card-text mb-0" th:text="${clubs.content}"></p>
                         </div>
                     </div>

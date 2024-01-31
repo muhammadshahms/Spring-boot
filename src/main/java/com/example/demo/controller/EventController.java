@@ -27,7 +27,7 @@ public class EventController {
     }
 
     @PostMapping("/event/{clubId}")
-    public String createEvent(@PathVariable Long clubId,@ModelAttribute("event") EventDto eventDto) {
+    public String createEvent(@PathVariable Long clubId,@ModelAttribute("event") EventDto eventDto,Model model) {
         eventService.createEvent(clubId, eventDto);
         return "redirect:/club/" + clubId;
     }

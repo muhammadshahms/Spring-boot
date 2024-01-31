@@ -9,6 +9,8 @@ import com.example.demo.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static com.example.demo.Mapper.EventMapper.mapToEvent;
+
 @Service
 public class EventServiceImpl implements EventService {
     private ClubRepository clubRepository;
@@ -21,23 +23,11 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public void createEvent(Long clubId, EventDto event) {
+    public void createEvent(Long clubId, EventDto eventDto) {
         Club club = clubRepository.findById(clubId).get();
-        Event event1 = mapToEvent(event);
-        eventRepository.save(event1);
+        Event event = mapToEvent(eventDto);
+        event.setClub(club);
+        eventRepository.save(event);
     }
 
-    private Event mapToEvent(EventDto eventDto) {
-        return Event.builder()
-                .name(eventDto.getName())
-                .location(eventDto.getLocation())
-                .photoUrl(eventDto.getPhotoUrl())
-                .type(eventDto.getType())
-                .startTime(eventDto.getStartTime())
-                .endTime(eventDto.getEndTime())
-                .type(eventDto.getType())
-                .createdOn(eventDto.getCreatedOn())
-                .updateOn(eventDto.getUpdateOn())
-                .build();
-    }
 }
