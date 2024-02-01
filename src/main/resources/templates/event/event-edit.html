@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="container border rounded p-5 my-5 bg-light text-center text-lg-start w-50 mx-auto mt-5">
+        <h1 class="text-center mb-5">Edit Event</h1>
+        <!--        <div class="alert alert-danger" role="alert" th:if="${error}">-->
+        <!--            <p th:text="${error}"></p>-->
+        <!--        </div>-->
+
+        <form role="form" th:action="@{/event/{eventId}/edit(eventId=${event.id})}" method="post" th:object="${event}">
+            <input type="hidden" th:field="*{id}">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" th:field="*{name}" name="name" class="form-control" id="name"
+                       aria-describedby="nameHelp">
+            </div>
+            <div class="mb-3">
+                <label for="location_" class="form-label">Location</label>
+                <input type="text" th:field="*{location}" name="location" class="form-control" id="location_"
+                       aria-describedby="locationHelp">
+            </div>
+            <div class="mb-3">
+                <label for="type" class="form-label">Type</label>
+                <input type="text" th:field="*{type}" name="type" class="form-control" id="type"
+                       aria-describedby="typeHelp">
+            </div>
+            <div class="mb-3">
+                <label for="photoUrl" class="form-label">PhotoURL</label>
+                <input type="text" th:field="*{photoUrl}" name="photoUrl" class="form-control" id="photoUrl"
+                       aria-describedby="photoUrlHelp">
+            </div>
+            <div class="mb-3">
+                <label for="details" class="form-label">Event Detail</label>
+                <input type="text" th:field="*{details}" name="details" class="form-control" id="details"
+                       aria-describedby="detailsHelp">
+            </div>
+            <div class="mb-3">
+                <label for="startTime" class="form-label">Start Time</label>
+                <input type="datetime-local" th:field="*{startTime}" name="startTime" class="form-control"
+                       id="startTime" aria-describedby="startTimeHelp">
+            </div>
+            <div class="mb-3">
+                <label for="endTime" class="form-label">End Time</label>
+                <input type="datetime-local" th:field="*{endTime}" name="endTime" class="form-control" id="endTime"
+                       aria-describedby="endTimeHelp">
+            </div>
+            <a class="btn btn-danger" th:href="@{/event/{eventId}/delete(clubId=${event.id})}"
+               th:onclick="return confirm('Are you sure?')">Delete</a>
+            <button type="reset" class="btn btn-warning">Reset</button>
+            <button type="submit" class="btn btn-primary ">Save</button>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>

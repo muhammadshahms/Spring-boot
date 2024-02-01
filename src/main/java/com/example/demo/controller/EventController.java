@@ -27,7 +27,7 @@ public class EventController {
     }
 
     @PostMapping("/event/{clubId}")
-    public String createEvent(@PathVariable Long clubId,@ModelAttribute("event") EventDto eventDto,Model model) {
+    public String createEvent(@PathVariable Long clubId, @ModelAttribute("event") EventDto eventDto, Model model) {
         eventService.createEvent(clubId, eventDto);
         return "redirect:/club/" + clubId;
     }
@@ -37,5 +37,25 @@ public class EventController {
         Event event = eventService.viewEvent(eventId);
         model.addAttribute("event", event);
         return "event/event-view";
+    }
+
+    @GetMapping("/event/{eventId}/edit")
+    public String editEventForm(@PathVariable Long eventId, Model model) {
+        Event event = eventService.findEventById(eventId);
+        model.addAttribute("event", event);
+        return "event/event-edit";
+    }
+
+    @PostMapping("/event/{eventId}/edit")
+    public String updateEvent(@PathVariable Long eventId, @ModelAttribute("event") EventDto event, Model model) {
+        eventService.updateEvent(event);
+        event.setId(eventId);
+        return "redirect:/event/" + eventId;
+    }
+
+    @GetMapping("/event/{eventId}/delete")
+    public String deleteEvent(@PathVariable Long eventId) {
+        eventService.deleteEvent(eventId);
+        return "redirect:/event/" + eventId;
     }
 }

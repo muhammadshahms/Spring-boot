@@ -11,7 +11,7 @@
 </head>
 <body>
 <section layout:fragment="content">
-    <div th:each="event:${event}" class="container">
+    <div th:each="event:${event}" class="container" th:object="${event}">
         <section class="py-5">
             <div class="container px-5 my-5">
                 <div class="row gx-5">
@@ -52,7 +52,6 @@
                             <p class="fs-5 mb-4" th:text="${event.location}"></p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>

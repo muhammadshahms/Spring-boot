@@ -8,9 +8,11 @@ public interface EventService {
 
     Event viewEvent(Long eventId);
 
-    void updateEvent(Long eventId);
-
     Event findEventById(Long eventId);
+
+    void updateEvent(EventDto eventDto);
+
+    void deleteEvent(Long eventId);
 
     //findEventById
 
