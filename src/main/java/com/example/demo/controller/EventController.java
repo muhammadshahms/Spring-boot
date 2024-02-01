@@ -48,8 +48,10 @@ public class EventController {
 
     @PostMapping("/event/{eventId}/edit")
     public String updateEvent(@PathVariable Long eventId, @ModelAttribute("event") EventDto event, Model model) {
+        Event eventToUpdate = eventService.findEventById(eventId);
         eventService.updateEvent(event);
         event.setId(eventId);
+
         return "redirect:/event/" + eventId;
     }
 

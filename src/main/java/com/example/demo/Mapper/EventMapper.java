@@ -14,6 +14,7 @@ public class EventMapper {
                 .startTime(eventDto.getStartTime())
                 .endTime(eventDto.getEndTime())
                 .type(eventDto.getType())
+                .club(eventDto.getClub())
                 .createdOn(eventDto.getCreatedOn())
                 .updateOn(eventDto.getUpdateOn())
                 .build();
@@ -29,6 +30,7 @@ public class EventMapper {
                 .type(event.getType())
                 .startTime(event.getStartTime())
                 .endTime(event.getEndTime())
+                .club(event.getClub())
                 .createdOn(event.getCreatedOn())
                 .updateOn(event.getUpdateOn())
                 .build();

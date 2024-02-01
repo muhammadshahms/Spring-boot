@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import com.example.demo.models.Club;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,6 +24,7 @@ public class EventDto {
     private LocalDateTime startTime;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime endTime;
+    private Club club;
     private LocalDateTime createdOn;
     private LocalDateTime updateOn;
 }
