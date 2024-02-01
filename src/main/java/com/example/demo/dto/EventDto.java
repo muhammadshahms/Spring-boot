@@ -18,6 +18,7 @@ public class EventDto {
     private String location;
     private String photoUrl;
     private String type;
+    private String details;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime startTime;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")

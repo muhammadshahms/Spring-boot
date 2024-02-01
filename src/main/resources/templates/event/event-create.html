@@ -35,6 +35,11 @@
                        aria-describedby="photoUrlHelp">
             </div>
             <div class="mb-3">
+                <label for="details" class="form-label">Event Detail</label>
+                <input type="text" th:field="*{details}" name="details" class="form-control" id="details"
+                       aria-describedby="detailsHelp">
+            </div>
+            <div class="mb-3">
                 <label for="startTime" class="form-label">Start Time</label>
                 <input type="datetime-local" th:field="*{startTime}" name="startTime" class="form-control"
                        id="startTime" aria-describedby="startTimeHelp">

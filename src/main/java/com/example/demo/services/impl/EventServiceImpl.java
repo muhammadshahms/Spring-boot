@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static com.example.demo.Mapper.EventMapper.mapToEvent;
+import static com.example.demo.Mapper.EventMapper.mapToEventDto;
 
 @Service
 public class EventServiceImpl implements EventService {
@@ -23,11 +24,29 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
+    public Event findEventById(Long eventId) {
+        Event event = eventRepository.findById(eventId).get();
+        return event;
+    }
+    @Override
     public void createEvent(Long clubId, EventDto eventDto) {
         Club club = clubRepository.findById(clubId).get();
         Event event = mapToEvent(eventDto);
         event.setClub(club);
         eventRepository.save(event);
     }
+
+    @Override
+    public Event viewEvent(Long eventId) {
+        Event event = eventRepository.findById(eventId).get();
+        EventDto eventDto = mapToEventDto(event);
+        return event;
+    }
+
+    @Override
+    public void updateEvent(Long eventId) {
+
+    }
+
 
 }

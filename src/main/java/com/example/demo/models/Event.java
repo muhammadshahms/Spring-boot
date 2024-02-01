@@ -22,6 +22,8 @@ public class Event {
     public String name;
     private String location;
     private String photoUrl;
+    @Column(columnDefinition = "TEXT")
+    private String details;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private String type;

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div th:each="event:${event}" class="container">
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="row gx-5">
+                    <div class="col-lg-3">
+                        <div class="d-flex align-items-center mt-lg-5 mb-4">
+                            <img class="img-fluid rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
+                                 alt="..."/>
+                            <div class="ms-3">
+                                <div class="fw-bold">Valerie Luna</div>
+                                <div class="text-muted">News, Business</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <!-- Post content-->
+                        <article>
+                            <!-- Post header-->
+                            <header class="mb-4">
+                                <!-- Post title-->
+                                <h1 class="fw-bolder mb-1" th:text="${event.name}"></h1>
+                                <!-- Post meta content-->
+                                <div class="text-muted fst-italic mb-2" th:text="${event.createdOn}" ></div>
+
+                            </header>
+                            <!-- Preview image figure-->
+                            <figure class="mb-4">
+                                <img class="img-fluid rounded" style="width: 900px; height: 400px; object-fit: cover;"
+                                     th:src="${event.photoUrl}" alt="..."/>
+                            </figure>
+                            <!-- Post content-->
+                            <section class="mb-5">
+                                <p class="fs-5 mb-4" th:text="${event.details}"></p>
+                            </section>
+                        </article>
+
+                        <div class="mb-4">
+                            <h1 class="fw-bolder mb-1">Location:</h1>
+                            <p class="fs-5 mb-4" th:text="${event.location}"></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+</body>
+</html>
