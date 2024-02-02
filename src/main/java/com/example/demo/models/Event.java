@@ -21,6 +21,7 @@ public class Event {
     public Long id;
     public String name;
     private String location;
+    @Column(columnDefinition = "TEXT")
     private String photoUrl;
     @Column(columnDefinition = "TEXT")
     private String details;
@@ -33,8 +34,7 @@ public class Event {
     private LocalDateTime updateOn;
 
     @ManyToOne
-    @JoinColumn(name = "club_id", nullable = false)
+    @JoinColumn(name="club_id", nullable = false)
     private Club club;
-
 
 }

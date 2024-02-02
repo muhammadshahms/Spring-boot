@@ -9,6 +9,9 @@ import com.example.demo.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static com.example.demo.Mapper.EventMapper.mapToEvent;
 import static com.example.demo.Mapper.EventMapper.mapToEventDto;
 
@@ -22,12 +25,16 @@ public class EventServiceImpl implements EventService {
         this.clubRepository = clubRepository;
         this.eventRepository = eventRepository;
     }
-
-    @Override
-    public Event findEventById(Long eventId) {
-        Event event = eventRepository.findById(eventId).get();
-        return event;
+    public List<EventDto> findAllEvents() {
+        List<Event> events = eventRepository.findAll();
+        return events.stream().map(event -> mapToEventDto(event)).collect(Collectors.toList());
     }
+    @Override
+    public EventDto findEventById(Long eventId) {
+        Event event = eventRepository.findById(eventId).get();
+        return mapToEventDto(event);
+    }
+
     @Override
     public void createEvent(Long clubId, EventDto eventDto) {
         Club club = clubRepository.findById(clubId).get();

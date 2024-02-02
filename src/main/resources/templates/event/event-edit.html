@@ -22,36 +22,43 @@
                 <label for="name" class="form-label">Name</label>
                 <input type="text" th:field="*{name}" name="name" class="form-control" id="name"
                        aria-describedby="nameHelp">
+                <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
             </div>
             <div class="mb-3">
                 <label for="location_" class="form-label">Location</label>
                 <input type="text" th:field="*{location}" name="location" class="form-control" id="location_"
                        aria-describedby="locationHelp">
+                <span class="text-danger" th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></span>
             </div>
             <div class="mb-3">
                 <label for="type" class="form-label">Type</label>
                 <input type="text" th:field="*{type}" name="type" class="form-control" id="type"
                        aria-describedby="typeHelp">
+                <span class="text-danger" th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span>
             </div>
             <div class="mb-3">
                 <label for="photoUrl" class="form-label">PhotoURL</label>
                 <input type="text" th:field="*{photoUrl}" name="photoUrl" class="form-control" id="photoUrl"
                        aria-describedby="photoUrlHelp">
+                <span class="text-danger" th:if="${#fields.hasErrors('photoUrl')}" th:errors="*{photoUrl}"></span>
             </div>
             <div class="mb-3">
                 <label for="details" class="form-label">Event Detail</label>
                 <input type="text" th:field="*{details}" name="details" class="form-control" id="details"
                        aria-describedby="detailsHelp">
+                <span class="text-danger" th:if="${#fields.hasErrors('details')}" th:errors="*{details}"></span>
             </div>
             <div class="mb-3">
                 <label for="startTime" class="form-label">Start Time</label>
                 <input type="datetime-local" th:field="*{startTime}" name="startTime" class="form-control"
                        id="startTime" aria-describedby="startTimeHelp">
+                <span class="text-danger" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></span>
             </div>
             <div class="mb-3">
                 <label for="endTime" class="form-label">End Time</label>
                 <input type="datetime-local" th:field="*{endTime}" name="endTime" class="form-control" id="endTime"
                        aria-describedby="endTimeHelp">
+                <span class="text-danger" th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}"></span>
             </div>
             <a class="btn btn-danger" th:href="@{/event/{eventId}/delete(clubId=${event.id})}"
                th:onclick="return confirm('Are you sure?')">Delete</a>
